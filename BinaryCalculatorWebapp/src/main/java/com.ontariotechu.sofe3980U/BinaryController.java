@@ -29,10 +29,21 @@ public class BinaryController {
 		{
 			case "+":
 				model.addAttribute("result", Binary.add(number1,number2).getValue());
-				return "result";
+				break;
+			case "|":
+				model.addAttribute("result", Binary.or(number1,number2).getValue());
+				break;
+			case "&":
+				model.addAttribute("result", Binary.and(number1,number2).getValue());
+				break;
+			case "*":
+				model.addAttribute("result", Binary.multiply(number1,number2).getValue());
+				break;
 			default:
-				return "Error";
+				model.addAttribute("result", "Error");
+				return "error";
 		}
+		return "result";
 	}
 
 }
